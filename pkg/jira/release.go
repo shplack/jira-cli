@@ -31,7 +31,7 @@ type VersionUpdateRequest struct {
 // Release fetches response from /project/{projectIdOrKey}/version endpoint.
 func (c *Client) Release(project string) ([]*ProjectVersion, error) {
 	path := fmt.Sprintf("/project/%s/versions", project)
-	res, err := c.Get(context.Background(), path, nil)
+	res, err := c.GetV2(context.Background(), path, nil)
 	if err != nil {
 		return nil, err
 	}
