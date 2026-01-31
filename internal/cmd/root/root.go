@@ -89,10 +89,10 @@ func NewCmdRoot() *cobra.Command {
 				checkForJiraToken(viper.GetString("server"), viper.GetString("login"))
 			}
 
-			configFile := viper.ConfigFileUsed()
-			if !jiraConfig.Exists(configFile) {
-				cmdutil.Failed("Missing configuration file.\nRun 'jira init' to configure the tool.")
-			}
+			// configFile := viper.ConfigFileUsed()
+			// if !jiraConfig.Exists(configFile) {
+			// 	cmdutil.Failed("Missing configuration file.\nRun 'jira init' to configure the tool.")
+			// }
 		},
 	}
 
