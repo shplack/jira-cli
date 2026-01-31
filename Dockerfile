@@ -9,7 +9,15 @@ ENV GOOS=linux
 
 WORKDIR /app
 
-COPY . .
+COPY .git .git
+COPY api api
+COPY cmd cmd
+COPY internal internal
+COPY pkg pkg
+COPY .deepsource.toml .deepsource.toml
+COPY go.mod go.mod
+COPY go.sum go.sum
+COPY Makefile Makefile
 
 RUN set -eux; \
     env ; \
@@ -25,4 +33,4 @@ WORKDIR /root/
 
 COPY --from=builder /go/bin/jira /bin/jira
 
-ENTRYPOINT ["/bin/sh"]
+ENTRYPOINT ["/bin/jira"]
